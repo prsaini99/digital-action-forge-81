@@ -14,6 +14,13 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+// NRI Portal Pages
+import NriPortal from "./pages/NriPortal";
+import NriResearch from "./pages/NriResearch";
+import NriStrategy from "./pages/NriStrategy";
+import NriProposal from "./pages/NriProposal";
+import NriProjects from "./pages/NriProjects";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +37,14 @@ const App = () => (
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact" element={<Contact />} />
+          
+          {/* NRI Portal Routes */}
+          <Route path="/nri-portal" element={<NriPortal />} />
+          <Route path="/nri-portal/research" element={<NriResearch />} />
+          <Route path="/nri-portal/strategy" element={<NriStrategy />} />
+          <Route path="/nri-portal/proposal" element={<NriProposal />} />
+          <Route path="/nri-portal/projects" element={<NriProjects />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
