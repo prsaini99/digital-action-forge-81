@@ -111,24 +111,7 @@ const NriProjects = () => {
             </p>
           </div>
 
-          {/* Project Filter */}
-          <div className="flex flex-wrap gap-4 mb-12 justify-center">
-            <button className="bg-cta-primary text-white px-6 py-2 rounded-full text-sm font-medium">
-              All Projects
-            </button>
-            <button className="bg-white text-gray-600 border border-gray-200 px-6 py-2 rounded-full text-sm font-medium hover:border-cta-primary hover:text-cta-primary transition-colors">
-              Kochi
-            </button>
-            <button className="bg-white text-gray-600 border border-gray-200 px-6 py-2 rounded-full text-sm font-medium hover:border-cta-primary hover:text-cta-primary transition-colors">
-              Thrissur
-            </button>
-            <button className="bg-white text-gray-600 border border-gray-200 px-6 py-2 rounded-full text-sm font-medium hover:border-cta-primary hover:text-cta-primary transition-colors">
-              Ready to Move
-            </button>
-            <button className="bg-white text-gray-600 border border-gray-200 px-6 py-2 rounded-full text-sm font-medium hover:border-cta-primary hover:text-cta-primary transition-colors">
-              Under Construction
-            </button>
-          </div>
+          {/* Project Filter - Removed as requested */}
 
           {/* Projects List */}
           <div className="space-y-12">
@@ -261,49 +244,7 @@ const NriProjects = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-display font-bold mb-8 text-center">
-              <span className="gradient-text">Frequently Asked Questions</span>
-            </h2>
-
-            <div className="space-y-4">
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-2">What documentation is required for NRIs to purchase property?</h3>
-                <p className="text-gray-600">
-                  NRIs need a PAN card, passport copy, visa/residence proof, photographs, and NRE/NRO account details. Our NRI desk assists with all documentation requirements.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-2">Can NRIs get home loans for property purchase in India?</h3>
-                <p className="text-gray-600">
-                  Yes, several Indian banks offer NRI-specific home loans with attractive interest rates. Sobha has partnerships with major financial institutions to simplify the loan process.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-2">What are the tax implications for NRIs investing in Indian real estate?</h3>
-                <p className="text-gray-600">
-                  NRIs must pay TDS on property sale, and may be liable for income tax on rental income. Long-term capital gains enjoy favorable tax treatment. Our tax consultants can provide personalized guidance.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-2">How can I manage my property while living abroad?</h3>
-                <p className="text-gray-600">
-                  Sobha offers comprehensive property management services for NRI clients, including maintenance, rent collection, tenant management, and regular property inspections.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <ContactCTA />
+      {/* Removed FAQ Section and Contact CTA as requested */}
     </main>
   );
 };
