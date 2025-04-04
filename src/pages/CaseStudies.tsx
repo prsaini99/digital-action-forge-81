@@ -7,7 +7,7 @@ const caseStudies = [
   {
     title: 'BMW Mumbai',
     description: 'High-quality lead generation boosting dealership preference through strategic digital campaigns.',
-    image: 'https://via.placeholder.com/800x500?text=BMW+Case+Study',
+    image: '/images/case-studies/bmw-case-study.jpg',
     category: 'Performance Marketing',
     results: [
       'Increased qualified leads by 45%',
@@ -19,7 +19,7 @@ const caseStudies = [
   {
     title: 'Aster Pharmacy Dubai',
     description: '15% revenue growth in 4 months via Google Search Ads and strategic digital marketing.',
-    image: 'https://via.placeholder.com/800x500?text=Aster+Case+Study',
+    image: '/images/case-studies/aster-case-study.jpg',
     category: 'Digital Advertising',
     results: [
       '15% revenue growth in just 4 months',
@@ -31,7 +31,7 @@ const caseStudies = [
   {
     title: 'DAMAC Lagoons Dubai',
     description: 'Sold 65% of Phase 1 units in 6 months with targeted ads, influencer marketing, and AI-assisted lead nurturing.',
-    image: 'https://via.placeholder.com/800x500?text=DAMAC+Case+Study',
+    image: '/images/case-studies/damac-case-study.jpg',
     category: 'Integrated Marketing',
     results: [
       '65% of Phase 1 units sold within 6 months',
@@ -43,7 +43,7 @@ const caseStudies = [
   {
     title: 'Urban Oasis by Missoni',
     description: '75% pre-completion sales, extensive luxury branding, and international investor outreach.',
-    image: 'https://via.placeholder.com/800x500?text=Urban+Oasis+Case+Study',
+    image: '/images/case-studies/urban-oasis-case-study.jpg',
     category: 'Luxury Marketing',
     results: [
       '75% pre-completion sales achieved',
@@ -55,7 +55,7 @@ const caseStudies = [
   {
     title: 'JBL Harman Campaign',
     description: '#MuteTheWorld campaign promoting noise-cancellation headphones, enhancing brand visibility.',
-    image: 'https://via.placeholder.com/800x500?text=JBL+Case+Study',
+    image: '/images/case-studies/jbl-case-study.jpg',
     category: 'Social Media',
     results: [
       'Significant increase in brand visibility',
@@ -67,7 +67,7 @@ const caseStudies = [
   {
     title: 'Kohinoor Basmati Rice',
     description: 'Transformed brand engagement through recipe-driven social media content, significantly increasing follower numbers.',
-    image: 'https://via.placeholder.com/800x500?text=Kohinoor+Case+Study',
+    image: '/images/case-studies/kohinoor-case-study.jpg',
     category: 'Content Marketing',
     results: [
       'Dramatic increase in social media followers',
@@ -106,6 +106,10 @@ const CaseStudies = () => {
                     src={study.image} 
                     alt={study.title} 
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      // Fallback to placeholder if image fails to load
+                      e.currentTarget.src = `https://via.placeholder.com/800x500?text=${study.title.replace(' ', '+')}`;
+                    }}
                   />
                   <div className="absolute top-4 left-4 bg-cta-primary/90 text-white text-sm px-3 py-1 rounded-full">
                     {study.category}

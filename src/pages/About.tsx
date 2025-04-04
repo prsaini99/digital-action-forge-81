@@ -109,9 +109,13 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
-                src="https://via.placeholder.com/600x400?text=Our+Story" 
+                src="/images/about/our-story.jpg" 
                 alt="Our story" 
-                className="rounded-xl shadow-lg w-full" 
+                className="rounded-xl shadow-lg w-full object-cover h-full max-h-[400px]" 
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  e.currentTarget.src = "https://via.placeholder.com/600x400?text=Our+Story";
+                }}
               />
             </div>
             <div>

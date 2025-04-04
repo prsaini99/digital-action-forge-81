@@ -9,6 +9,14 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -right-10 top-1/3 w-64 h-64 bg-cta-highlight/10 rounded-full blur-3xl"></div>
         <div className="absolute left-1/4 bottom-1/4 w-96 h-96 bg-cta-accent/10 rounded-full blur-3xl"></div>
+        
+        {/* Background pattern overlay */}
+        <div className="absolute inset-0 opacity-10" 
+             style={{
+               backgroundImage: 'url(/images/pattern-grid.svg)',
+               backgroundSize: '30px 30px'
+             }}>
+        </div>
       </div>
       
       <div className="container-custom relative z-10">

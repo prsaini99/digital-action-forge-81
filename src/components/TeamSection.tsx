@@ -6,7 +6,7 @@ const team = [
     name: 'Pranav Singh',
     role: 'Co-Founder & Technical Director',
     bio: 'Tech entrepreneur, Director at Mondee, Founder of 11point2, and CMO at MetaSpace and Floxypay. Expert in AI, fintech, Web3, and business development.',
-    image: 'https://via.placeholder.com/300x300?text=Pranav+Singh',
+    image: '/images/team/pranav-singh.jpg',
     linkedin: '#',
     twitter: '#'
   },
@@ -14,7 +14,7 @@ const team = [
     name: 'Ahsan Z Jawed',
     role: 'Co-Founder & Digital Strategist',
     bio: 'Entrepreneur with 18+ years in digital marketing and business development. Experienced in scaling startups and has worked with top global brands.',
-    image: 'https://via.placeholder.com/300x300?text=Ahsan+Z+Jawed',
+    image: '/images/team/ahsan-jawed.jpg',
     linkedin: '#',
     twitter: '#'
   }
@@ -41,6 +41,10 @@ const TeamSection = () => {
                   src={member.image} 
                   alt={member.name} 
                   className="w-full h-72 object-cover object-center" 
+                  onError={(e) => {
+                    // Fallback to placeholder if image fails to load
+                    e.currentTarget.src = `https://via.placeholder.com/300x300?text=${member.name.replace(' ', '+')}`;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-cta-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-6 flex space-x-3">

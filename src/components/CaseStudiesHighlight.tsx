@@ -6,21 +6,21 @@ const caseStudies = [
   {
     title: 'BMW Mumbai',
     description: 'High-quality lead generation boosting dealership preference through targeted campaigns.',
-    image: 'https://via.placeholder.com/600x400?text=BMW+Case+Study',
+    image: '/images/case-studies/bmw-case-study.jpg',
     category: 'Performance Marketing',
     link: '/case-studies'
   },
   {
     title: 'Aster Pharmacy Dubai',
     description: '15% revenue growth in 4 months via Google Search Ads and strategic digital marketing.',
-    image: 'https://via.placeholder.com/600x400?text=Aster+Case+Study',
+    image: '/images/case-studies/aster-case-study.jpg',
     category: 'Digital Advertising',
     link: '/case-studies'
   },
   {
     title: 'JBL Harman Campaign',
     description: '#MuteTheWorld campaign promoting noise-cancellation headphones, enhancing brand visibility.',
-    image: 'https://via.placeholder.com/600x400?text=JBL+Case+Study',
+    image: '/images/case-studies/jbl-case-study.jpg',
     category: 'Social Media',
     link: '/case-studies'
   }
@@ -54,6 +54,10 @@ const CaseStudiesHighlight = () => {
                     src={study.image} 
                     alt={study.title} 
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      // Fallback to placeholder if image fails to load
+                      e.currentTarget.src = `https://via.placeholder.com/600x400?text=${study.title.replace(' ', '+')}`;
+                    }}
                   />
                   <div className="absolute top-4 left-4 bg-cta-primary/90 text-white text-sm px-3 py-1 rounded-full">
                     {study.category}

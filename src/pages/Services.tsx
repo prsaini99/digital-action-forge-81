@@ -89,9 +89,13 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <img 
-                src="https://via.placeholder.com/600x400?text=Our+Services" 
+                src="/images/services/services-overview.jpg" 
                 alt="Our services" 
                 className="rounded-xl shadow-lg w-full" 
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  e.currentTarget.src = "https://via.placeholder.com/600x400?text=Our+Services";
+                }}
               />
             </div>
             <div>

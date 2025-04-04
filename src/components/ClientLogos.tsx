@@ -2,14 +2,14 @@
 import { motion } from 'framer-motion';
 
 const clients = [
-  { name: 'BMW', logo: 'https://via.placeholder.com/150x80?text=BMW' },
-  { name: 'JBL', logo: 'https://via.placeholder.com/150x80?text=JBL' },
-  { name: 'Google', logo: 'https://via.placeholder.com/150x80?text=Google' },
-  { name: 'Aster', logo: 'https://via.placeholder.com/150x80?text=Aster' },
-  { name: 'DAMAC', logo: 'https://via.placeholder.com/150x80?text=DAMAC' },
-  { name: 'V-Mart', logo: 'https://via.placeholder.com/150x80?text=V-Mart' },
-  { name: 'Kohinoor', logo: 'https://via.placeholder.com/150x80?text=Kohinoor' },
-  { name: 'Sleepwell', logo: 'https://via.placeholder.com/150x80?text=Sleepwell' },
+  { name: 'BMW', logo: '/images/logos/bmw-logo.png' },
+  { name: 'JBL', logo: '/images/logos/jbl-logo.png' },
+  { name: 'Google', logo: '/images/logos/google-logo.png' },
+  { name: 'Aster', logo: '/images/logos/aster-logo.png' },
+  { name: 'DAMAC', logo: '/images/logos/damac-logo.png' },
+  { name: 'V-Mart', logo: '/images/logos/vmart-logo.png' },
+  { name: 'Kohinoor', logo: '/images/logos/kohinoor-logo.png' },
+  { name: 'Sleepwell', logo: '/images/logos/sleepwell-logo.png' },
 ];
 
 const ClientLogos = () => {
@@ -25,7 +25,15 @@ const ClientLogos = () => {
               key={client.name}
               className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             >
-              <img src={client.logo} alt={client.name} className="max-h-12" />
+              <img 
+                src={client.logo} 
+                alt={`${client.name} logo`} 
+                className="max-h-12" 
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  e.currentTarget.src = `https://via.placeholder.com/150x80?text=${client.name}`;
+                }}
+              />
             </div>
           ))}
         </div>
