@@ -12,12 +12,12 @@ const About = () => {
     },
     {
       title: 'Results-Driven',
-      description: 'We focus on delivering measurable outcomes that directly impact our clients' business goals and objectives.',
+      description: "We focus on delivering measurable outcomes that directly impact our clients' business goals and objectives.",
       icon: <Target className="h-8 w-8 text-cta-accent" />
     },
     {
       title: 'Client-Centric',
-      description: 'We prioritize understanding our clients' unique needs and challenges to deliver tailored solutions that exceed expectations.',
+      description: "We prioritize understanding our clients' unique needs and challenges to deliver tailored solutions that exceed expectations.",
       icon: <Users className="h-8 w-8 text-cta-accent" />
     },
     {
