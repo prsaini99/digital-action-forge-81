@@ -1,26 +1,27 @@
 
-import { ArrowRight, BrainCircuit, Code, Boxes, LineChart, Megaphone, Users, ShieldCheck, ShoppingBag } from 'lucide-react';
+import { ArrowRight, BrainCircuit, Code, Boxes, LineChart, Megaphone, Users, ShieldCheck, ShoppingBag, GanttChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ContactCTA from '../components/ContactCTA';
+import ImageLoader from '../components/ImageLoader';
 
 const marketingServices = [
   {
     title: 'Performance Marketing',
     description: 'Data-driven campaigns that deliver measurable ROI across search, social, and display advertising.',
     icon: <LineChart className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/performance-marketing'
   },
   {
     title: 'Social Media Management',
     description: 'Strategic content creation, community engagement, and social media advertising.',
     icon: <Megaphone className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/social-media-management'
   },
   {
     title: 'Influencer Marketing',
     description: 'Connecting brands with the right influencers to reach and engage target audiences authentically.',
     icon: <Users className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/influencer-marketing'
   }
 ];
 
@@ -29,31 +30,37 @@ const techServices = [
     title: 'AI Development',
     description: 'Custom AI solutions that transform business operations and create new opportunities.',
     icon: <BrainCircuit className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/ai-development'
   },
   {
     title: 'Software Development',
     description: 'Custom web and mobile applications tailored to your specific business needs.',
     icon: <Code className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/software-development'
   },
   {
     title: 'Blockchain Solutions',
     description: 'Innovative blockchain applications for security, transparency, and efficiency.',
     icon: <Boxes className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/blockchain-solutions'
   },
   {
     title: 'Cybersecurity',
     description: 'Comprehensive protection against cyber threats with security assessments and data protection.',
     icon: <ShieldCheck className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/cybersecurity'
   },
   {
     title: 'E-commerce Solutions',
     description: 'End-to-end e-commerce platforms with seamless user experiences and AI-driven recommendations.',
     icon: <ShoppingBag className="h-8 w-8 text-cta-accent" />,
-    link: '#'
+    link: '/services/ecommerce-solutions'
+  },
+  {
+    title: 'Project Management',
+    description: 'Efficient project delivery with agile methodologies and clear communication.',
+    icon: <GanttChart className="h-8 w-8 text-cta-accent" />,
+    link: '/services/project-management'
   }
 ];
 
@@ -88,14 +95,11 @@ const Services = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
+              <ImageLoader 
                 src="/images/services/services-overview.jpg" 
                 alt="Our services" 
                 className="rounded-xl shadow-lg w-full" 
-                onError={(e) => {
-                  // Fallback to placeholder if image fails to load
-                  e.currentTarget.src = "https://via.placeholder.com/600x400?text=Our+Services";
-                }}
+                fallbackSrc="https://via.placeholder.com/600x400?text=Our+Services"
               />
             </div>
             <div>

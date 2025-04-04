@@ -10,49 +10,49 @@ const services = [
     title: 'Performance Marketing',
     description: 'Data-driven PPC, SEO, and email marketing campaigns that deliver measurable ROI.',
     icon: <LineChart className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/performance-marketing'
   },
   {
     title: 'AI Development',
     description: 'Custom AI solutions that transform business operations and create new opportunities.',
     icon: <BrainCircuit className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/ai-development'
   },
   {
     title: 'Blockchain Solutions',
     description: 'Innovative blockchain applications for security, transparency, and efficiency.',
     icon: <Boxes className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/blockchain-solutions'
   },
   {
     title: 'Social Media Management',
     description: 'Strategic content creation and community engagement that builds brand loyalty.',
     icon: <Megaphone className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/social-media-management'
   },
   {
     title: 'Software Development',
     description: 'Custom web and mobile applications tailored to your business needs.',
     icon: <Code className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/software-development'
   },
   {
-    title: 'Cloud & Cybersecurity',
+    title: 'Cybersecurity',
     description: 'Secure cloud infrastructure with robust protection against cyber threats.',
     icon: <ShieldCheck className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/cybersecurity'
   },
   {
     title: 'E-commerce Solutions',
     description: 'End-to-end e-commerce platforms with seamless user experiences.',
     icon: <ShoppingBag className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/ecommerce-solutions'
   },
   {
     title: 'Project Management',
     description: 'Efficient project delivery with agile methodologies and clear communication.',
     icon: <GanttChart className="w-10 h-10 text-cta-accent" />,
-    link: '/services'
+    link: '/services/project-management'
   }
 ];
 
