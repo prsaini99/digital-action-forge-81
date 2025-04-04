@@ -4,7 +4,7 @@
  */
 
 export const validateImageUrl = (url: string, fallback: string): string => {
-  if (!url || url.startsWith('https://via.placeholder.com')) {
+  if (!url || url.trim() === '') {
     return fallback;
   }
   
@@ -17,7 +17,7 @@ export const validateImageUrl = (url: string, fallback: string): string => {
 };
 
 export const getImageFallback = (category: string, name: string): string => {
-  const formattedName = name.replace(/\s+/g, '+');
+  const formattedName = encodeURIComponent(name.replace(/\s+/g, '+'));
   
   switch(category) {
     case 'logo':

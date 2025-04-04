@@ -1,5 +1,7 @@
 
 import { motion } from 'framer-motion';
+import ImageLoader from './ImageLoader';
+import { validateImageUrl, getImageFallback } from '../utils/imageValidator';
 
 const clients = [
   { name: 'BMW', logo: '/images/logos/bmw-logo.png' },
@@ -25,14 +27,11 @@ const ClientLogos = () => {
               key={client.name}
               className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             >
-              <img 
-                src={client.logo} 
-                alt={`${client.name} logo`} 
-                className="max-h-12" 
-                onError={(e) => {
-                  // Fallback to placeholder if image fails to load
-                  e.currentTarget.src = `https://via.placeholder.com/150x80?text=${client.name}`;
-                }}
+              <ImageLoader 
+                src={validateImageUrl(client.logo, '')}
+                alt={`${client.name} logo`}
+                fallbackSrc={getImageFallback('logo', client.name)}
+                className="max-h-12 w-auto object-contain"
               />
             </div>
           ))}

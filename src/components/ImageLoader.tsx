@@ -25,6 +25,7 @@ const ImageLoader = ({ src, alt, fallbackSrc, className }: ImageLoaderProps) => 
       alt={alt}
       className={className}
       onError={handleError}
+      loading="lazy"
     />
   );
 };
