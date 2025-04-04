@@ -181,15 +181,7 @@ const NriProjects = () => {
                       ))}
                     </div>
                     
-                    <div className="flex justify-between items-center">
-                      <button className="bg-gradient-to-r from-cta-primary to-cta-accent text-white px-6 py-3 rounded-md font-medium hover:shadow-lg transition-all">
-                        Schedule Virtual Tour
-                      </button>
-                      <button className="text-cta-primary hover:text-cta-accent transition-colors font-medium flex items-center">
-                        Project Details
-                        <ArrowRight size={16} className="ml-2" />
-                      </button>
-                    </div>
+                    {/* Removed Schedule Virtual Tour and Project Details buttons */}
                   </div>
                 </div>
               </div>
