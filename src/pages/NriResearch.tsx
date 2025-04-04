@@ -158,7 +158,7 @@ const NriResearch = () => {
               <ul>
                 <li><strong>Demographics:</strong> Age 35–55, often moved abroad in the IT boom of 1990s/2000s</li>
                 <li><strong>Professions:</strong> IT (software engineers, tech managers), healthcare, academic/research</li>
-                <li><strong>Income:</strong> Generally high (household incomes frequently >$100K)</li>
+                <li><strong>Income:</strong> Generally high (household incomes frequently &gt;$100K)</li>
                 <li><strong>Motivations:</strong> Vacation homes, retirement retreats, investment diversification</li>
                 <li><strong>Key Drivers:</strong> Spending winters in Kerala's warm climate, being near aging parents, high returns</li>
               </ul>
