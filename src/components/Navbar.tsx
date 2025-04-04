@@ -40,7 +40,6 @@ const Navbar = () => {
           <Link to="/about" className="text-gray-800 hover:text-cta-accent transition-colors">About Us</Link>
           <Link to="/services" className="text-gray-800 hover:text-cta-accent transition-colors">Services</Link>
           <Link to="/case-studies" className="text-gray-800 hover:text-cta-accent transition-colors">Case Studies</Link>
-          <Link to="/nri-portal" className="text-gray-800 hover:text-cta-accent transition-colors">NRI Portal</Link>
           <Link to="/contact" className="text-white px-5 py-2 rounded-md bg-cta-primary hover:bg-cta-secondary transition-colors">
             Contact Us
           </Link>
@@ -60,7 +59,6 @@ const Navbar = () => {
             <Link to="/about" className="text-gray-800 hover:text-cta-accent transition-colors" onClick={toggleMenu}>About Us</Link>
             <Link to="/services" className="text-gray-800 hover:text-cta-accent transition-colors" onClick={toggleMenu}>Services</Link>
             <Link to="/case-studies" className="text-gray-800 hover:text-cta-accent transition-colors" onClick={toggleMenu}>Case Studies</Link>
-            <Link to="/nri-portal" className="text-gray-800 hover:text-cta-accent transition-colors" onClick={toggleMenu}>NRI Portal</Link>
             <Link to="/contact" className="bg-cta-primary text-white px-4 py-2 rounded-md text-center hover:bg-cta-secondary transition-colors" onClick={toggleMenu}>
               Contact Us
             </Link>

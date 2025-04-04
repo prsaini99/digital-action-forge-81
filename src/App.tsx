@@ -38,7 +38,7 @@ const App = () => (
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact" element={<Contact />} />
           
-          {/* NRI Portal Routes */}
+          {/* NRI Portal Routes - still accessible but no navigation to them */}
           <Route path="/nri-portal" element={<NriPortal />} />
           <Route path="/nri-portal/research" element={<NriResearch />} />
           <Route path="/nri-portal/strategy" element={<NriStrategy />} />
