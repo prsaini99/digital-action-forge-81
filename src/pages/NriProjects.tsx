@@ -2,7 +2,7 @@
 import { ArrowRight, Building2, Map, Home, Landmark } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NriPortalNav from '../components/NriPortalNav';
-import ContactCTA from '../components/ContactCTA';
+import ImageLoader from '../components/ImageLoader';
 
 const projects = [
   {
@@ -21,7 +21,8 @@ const projects = [
       "High rental potential",
       "RERA approved"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Marina+One"
+    image: "/public/lovable-uploads/9599c049-2f74-4eb8-ae00-033fcb539de2.png",
+    fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Marina+One"
   },
   {
     id: 2,
@@ -39,7 +40,8 @@ const projects = [
       "Strategic location",
       "Smart home features"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Atlantis"
+    image: "/public/lovable-uploads/75e88124-96b4-4c9d-b48f-3a62f0fa8f21.png",
+    fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Atlantis"
   },
   {
     id: 3,
@@ -57,7 +59,8 @@ const projects = [
       "Spacious layouts",
       "Premium specifications"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Metropolis"
+    image: "https://via.placeholder.com/600x400?text=Sobha+Metropolis",
+    fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Metropolis"
   },
   {
     id: 4,
@@ -75,7 +78,8 @@ const projects = [
       "Exclusive clubhouse",
       "Premium landscaping"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Silver+Estate"
+    image: "https://via.placeholder.com/600x400?text=Sobha+Silver+Estate",
+    fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Silver+Estate"
   }
 ];
 
@@ -111,17 +115,16 @@ const NriProjects = () => {
             </p>
           </div>
 
-          {/* Project Filter - Removed as requested */}
-
           {/* Projects List */}
           <div className="space-y-12">
             {projects.map((project) => (
               <div key={project.id} className="bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-3">
                   <div className="lg:col-span-1">
-                    <img 
+                    <ImageLoader 
                       src={project.image} 
                       alt={project.name} 
+                      fallbackSrc={project.fallbackImage}
                       className="h-64 lg:h-full w-full object-cover"
                     />
                   </div>
@@ -180,8 +183,6 @@ const NriProjects = () => {
                         </span>
                       ))}
                     </div>
-                    
-                    {/* Removed Schedule Virtual Tour and Project Details buttons */}
                   </div>
                 </div>
               </div>
@@ -235,8 +236,6 @@ const NriProjects = () => {
           </div>
         </div>
       </section>
-
-      {/* Removed FAQ Section and Contact CTA as requested */}
     </main>
   );
 };
