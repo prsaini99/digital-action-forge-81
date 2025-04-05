@@ -138,11 +138,15 @@ const NriPortal = () => {
                 </Link>
               </div>
               <div className="hidden md:block">
-                <ImageLoader 
-                  src="/images/lead-generation-strategy.jpg" 
+                <img 
+                  src="/lovable-uploads/354d8568-ff31-4f59-a7d6-51b279969f49.png" 
                   alt="Lead Generation Strategy" 
-                  fallbackSrc={getImageFallback('case-study', 'Lead Generation Strategy')}
-                  className="rounded-xl shadow-md w-full h-auto"
+                  className="rounded-xl shadow-md w-full h-auto object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = getImageFallback('case-study', 'Lead Generation Strategy');
+                    target.onerror = null; // Prevent infinite loop
+                  }}
                 />
               </div>
             </div>
