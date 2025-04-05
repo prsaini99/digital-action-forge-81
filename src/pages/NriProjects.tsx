@@ -1,4 +1,3 @@
-
 import { ArrowRight, Building2, Map, Home, Landmark } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NriPortalNav from '../components/NriPortalNav';
@@ -59,7 +58,7 @@ const projects = [
       "Spacious layouts",
       "Premium specifications"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Metropolis",
+    image: "/public/lovable-uploads/5812dcfb-d442-48cc-8a22-a17ad92bc106.png",
     fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Metropolis"
   },
   {
@@ -78,7 +77,7 @@ const projects = [
       "Exclusive clubhouse",
       "Premium landscaping"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Silver+Estate",
+    image: "/public/lovable-uploads/cb74d1bf-f525-4c2f-9deb-2a09ac7ee6fe.png",
     fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Silver+Estate"
   }
 ];
