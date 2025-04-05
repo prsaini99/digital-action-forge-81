@@ -89,60 +89,6 @@ const NriPortal = () => {
         </div>
       </section>
 
-      {/* Featured Project */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src="https://via.placeholder.com/600x400?text=Sobha+Marina+One" 
-                alt="Sobha Marina One, Kochi" 
-                className="rounded-xl shadow-lg w-full object-cover aspect-video"
-              />
-            </div>
-            <div>
-              <h2 className="text-3xl font-display font-bold mb-6">
-                <span className="gradient-text">Featured Project: Sobha Marina One</span>
-              </h2>
-              <p className="text-lg text-gray-600 mb-4">
-                Luxury waterfront apartments in the heart of Kochi with breathtaking views of the Arabian Sea.
-                Premium 2, 3, and 4 BHK units designed for discerning NRI investors seeking quality and returns.
-              </p>
-              <ul className="space-y-2 text-gray-600 mb-8">
-                <li className="flex items-center">
-                  <div className="bg-cta-accent/10 p-1 rounded-full mr-3">
-                    <div className="w-2 h-2 bg-cta-accent rounded-full"></div>
-                  </div>
-                  <span>Premium waterfront location</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="bg-cta-accent/10 p-1 rounded-full mr-3">
-                    <div className="w-2 h-2 bg-cta-accent rounded-full"></div>
-                  </div>
-                  <span>World-class amenities</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="bg-cta-accent/10 p-1 rounded-full mr-3">
-                    <div className="w-2 h-2 bg-cta-accent rounded-full"></div>
-                  </div>
-                  <span>High rental potential</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="bg-cta-accent/10 p-1 rounded-full mr-3">
-                    <div className="w-2 h-2 bg-cta-accent rounded-full"></div>
-                  </div>
-                  <span>RERA approved</span>
-                </li>
-              </ul>
-              <Link to="/nri-portal/projects" className="inline-flex items-center bg-gradient-to-r from-cta-primary to-cta-accent text-white px-6 py-3 rounded-md font-medium hover:shadow-lg transition-all">
-                Explore Projects
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Key Markets */}
       <section className="section-padding bg-white">
         <div className="container-custom">
