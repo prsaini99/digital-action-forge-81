@@ -31,7 +31,7 @@ export const projects: Project[] = [
       "High rental potential",
       "RERA approved"
     ],
-    image: "/public/lovable-uploads/9599c049-2f74-4eb8-ae00-033fcb539de2.png",
+    image: "/lovable-uploads/9599c049-2f74-4eb8-ae00-033fcb539de2.png",
     fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Marina+One"
   },
   {
@@ -50,7 +50,7 @@ export const projects: Project[] = [
       "Strategic location",
       "Smart home features"
     ],
-    image: "/public/lovable-uploads/75e88124-96b4-4c9d-b48f-3a62f0fa8f21.png",
+    image: "/lovable-uploads/75e88124-96b4-4c9d-b48f-3a62f0fa8f21.png",
     fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Atlantis"
   },
   {
@@ -69,7 +69,7 @@ export const projects: Project[] = [
       "Spacious layouts",
       "Premium specifications"
     ],
-    image: "/public/lovable-uploads/5812dcfb-d442-48cc-8a22-a17ad92bc106.png",
+    image: "/lovable-uploads/5812dcfb-d442-48cc-8a22-a17ad92bc106.png",
     fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Metropolis"
   },
   {
@@ -88,7 +88,7 @@ export const projects: Project[] = [
       "Exclusive clubhouse",
       "Premium landscaping"
     ],
-    image: "/public/lovable-uploads/cb74d1bf-f525-4c2f-9deb-2a09ac7ee6fe.png",
+    image: "/lovable-uploads/cb74d1bf-f525-4c2f-9deb-2a09ac7ee6fe.png",
     fallbackImage: "https://via.placeholder.com/600x400?text=Sobha+Silver+Estate"
   }
 ];
