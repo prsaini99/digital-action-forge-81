@@ -3,6 +3,8 @@ import { ArrowRight, Globe, TrendingUp, Building, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NriPortalNav from '../components/NriPortalNav';
 import ContactCTA from '../components/ContactCTA';
+import ImageLoader from '../components/ImageLoader';
+import { getImageFallback } from '../utils/imageValidator';
 
 const NriPortal = () => {
   return (
@@ -136,10 +138,11 @@ const NriPortal = () => {
                 </Link>
               </div>
               <div className="hidden md:block">
-                <img 
-                  src="https://via.placeholder.com/500x300?text=Lead+Generation+Strategy" 
+                <ImageLoader 
+                  src="/images/lead-generation-strategy.jpg" 
                   alt="Lead Generation Strategy" 
-                  className="rounded-xl shadow-md"
+                  fallbackSrc={getImageFallback('case-study', 'Lead Generation Strategy')}
+                  className="rounded-xl shadow-md w-full h-auto"
                 />
               </div>
             </div>
