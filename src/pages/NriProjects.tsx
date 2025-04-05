@@ -25,57 +25,57 @@ const projects = [
   },
   {
     id: 2,
-    name: "Sobha Palladian",
+    name: "Sobha Atlantis",
     location: "Edappally, Kochi",
     type: "Premium Apartments",
-    price: "₹95 Lakhs onwards",
+    price: "₹1.2 Cr onwards",
     bedrooms: "2 & 3 BHK",
-    area: "1100 - 2400 sq.ft.",
+    area: "1300 - 2600 sq.ft.",
     completion: "Dec 2025",
-    description: "Contemporary living spaces at a prime location near Lulu Mall and Infopark. Features include multiple recreational areas, children's play zones, and sustainable design elements.",
+    description: "Iconic residential towers with modern design and luxury amenities. Features include clubhouse, swimming pool, fitness center, and landscaped gardens in a prime location.",
     highlights: [
-      "Strategic location near IT hub",
-      "Contemporary architecture",
-      "Excellent connectivity",
-      "Smart home technology"
+      "Iconic architecture",
+      "Premium amenities",
+      "Strategic location",
+      "Smart home features"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Palladian"
+    image: "https://via.placeholder.com/600x400?text=Sobha+Atlantis"
   },
   {
     id: 3,
-    name: "Sobha Royal Heritage",
+    name: "Sobha Metropolis",
     location: "City Center, Thrissur",
-    type: "Luxury Villas & Apartments",
-    price: "₹1.8 Cr onwards",
+    type: "Luxury Apartments",
+    price: "₹1.4 Cr onwards",
     bedrooms: "3 & 4 BHK",
-    area: "2200 - 4500 sq.ft.",
+    area: "1800 - 3200 sq.ft.",
     completion: "Ready to Move",
-    description: "Exclusive gated community in the cultural capital of Kerala with a blend of traditional Kerala architecture and modern amenities. Private gardens, courtyards, and cultural spaces.",
+    description: "Urban luxury living in the heart of Thrissur's cultural district. Spacious apartments with premium finishes, dedicated workspace, and proximity to major cultural landmarks.",
     highlights: [
-      "Blend of tradition and luxury",
-      "Spacious private gardens",
-      "Close to Thrissur's cultural centers",
-      "Family-friendly community"
+      "Central location",
+      "Cultural district",
+      "Spacious layouts",
+      "Premium specifications"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Royal+Heritage"
+    image: "https://via.placeholder.com/600x400?text=Sobha+Metropolis"
   },
   {
     id: 4,
-    name: "Sobha Meadows",
+    name: "Sobha Silver Estate",
     location: "Puzhakkal, Thrissur",
     type: "Premium Villas",
-    price: "₹1.2 Cr onwards",
+    price: "₹1.8 Cr onwards",
     bedrooms: "3 & 4 BHK",
-    area: "2000 - 3800 sq.ft.",
+    area: "2500 - 4000 sq.ft.",
     completion: "June 2026",
-    description: "Serene villa community surrounded by lush greenery with generous plot sizes. Features include private pools, expansive landscaped gardens, and proximity to educational institutions.",
+    description: "Exclusive gated villa community with silver-themed architecture and landscaping. Features spacious plots, private gardens, and premium community facilities.",
     highlights: [
-      "Tranquil surroundings",
-      "Generous plot sizes",
-      "Private pools available",
-      "Near international schools"
+      "Gated community",
+      "Spacious villa plots",
+      "Exclusive clubhouse",
+      "Premium landscaping"
     ],
-    image: "https://via.placeholder.com/600x400?text=Sobha+Meadows"
+    image: "https://via.placeholder.com/600x400?text=Sobha+Silver+Estate"
   }
 ];
 
