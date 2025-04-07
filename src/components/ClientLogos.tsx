@@ -21,19 +21,19 @@ const clients = [
   },
   { 
     name: 'DAMAC', 
-    logo: '/images/logos/damac-logo.png' 
+    logo: '/lovable-uploads/24fc63da-8404-4c1a-ad8a-c44e18b9ab8b.png' 
   },
   { 
     name: 'V-Mart', 
-    logo: '/images/logos/vmart-logo.png' 
+    logo: 'https://via.placeholder.com/150x80?text=V-Mart' 
   },
   { 
     name: 'Kohinoor', 
-    logo: '/images/logos/kohinoor-logo.png' 
+    logo: 'https://via.placeholder.com/150x80?text=Kohinoor' 
   },
   { 
     name: 'Sleepwell', 
-    logo: '/images/logos/sleepwell-logo.png' 
+    logo: 'https://via.placeholder.com/150x80?text=Sleepwell' 
   },
 ];
 

@@ -20,8 +20,12 @@ const ImageLoader = ({ src, alt, fallbackSrc, className }: ImageLoaderProps) => 
     
     // Normalize the source path
     if (src) {
+      // Check if it's a remote URL (for placeholder images)
+      if (src.startsWith('http')) {
+        setImgSrc(src);
+      }
       // Special handling for lovable-uploads paths
-      if (src.includes('lovable-uploads')) {
+      else if (src.includes('lovable-uploads')) {
         setImgSrc(src);
       } else {
         // Remove any leading 'public/' from the path if present

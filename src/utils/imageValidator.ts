@@ -8,6 +8,11 @@ export const validateImageUrl = (url: string, fallback: string): string => {
     return fallback;
   }
   
+  // If it's already a complete URL (for placeholder images), return as is
+  if (url.startsWith('http')) {
+    return url;
+  }
+  
   // Handle lovable-uploads paths specially to ensure they work
   if (url.includes('lovable-uploads')) {
     if (!url.startsWith('/')) {
@@ -61,6 +66,11 @@ export const createPlaceholderImage = (width: number, height: number, text: stri
  */
 export const sanitizeImagePath = (path: string): string => {
   if (!path) return '';
+  
+  // If it's already a complete URL, return as is
+  if (path.startsWith('http')) {
+    return path;
+  }
   
   // Special handling for lovable-uploads to ensure they work correctly
   if (path.includes('lovable-uploads')) {
