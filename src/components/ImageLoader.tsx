@@ -20,9 +20,14 @@ const ImageLoader = ({ src, alt, fallbackSrc, className }: ImageLoaderProps) => 
     
     // Normalize the source path
     if (src) {
-      // Remove any leading 'public/' from the path if present
-      const normalizedSrc = src.startsWith('public/') ? src.substring(7) : src;
-      setImgSrc(normalizedSrc);
+      // Special handling for lovable-uploads paths
+      if (src.includes('lovable-uploads')) {
+        setImgSrc(src);
+      } else {
+        // Remove any leading 'public/' from the path if present
+        const normalizedSrc = src.startsWith('public/') ? src.substring(7) : src;
+        setImgSrc(normalizedSrc);
+      }
     }
   }, [src]);
 
@@ -46,7 +51,7 @@ const ImageLoader = ({ src, alt, fallbackSrc, className }: ImageLoaderProps) => 
   return (
     <>
       {loading && (
-        <div className={`bg-gray-200 animate-pulse ${className}`} style={{ minHeight: '100px' }}>
+        <div className={`bg-gray-200 animate-pulse ${className}`} style={{ minHeight: '80px' }}>
           <div className="w-full h-full flex items-center justify-center text-gray-500">Loading...</div>
         </div>
       )}
@@ -59,7 +64,7 @@ const ImageLoader = ({ src, alt, fallbackSrc, className }: ImageLoaderProps) => 
         loading="lazy"
       />
       {error && !fallbackSrc && (
-        <div className={`bg-gray-200 flex items-center justify-center ${className}`} style={{ minHeight: '100px' }}>
+        <div className={`bg-gray-200 flex items-center justify-center ${className}`} style={{ minHeight: '80px' }}>
           <span className="text-gray-500 text-sm">{alt || 'Image unavailable'}</span>
         </div>
       )}

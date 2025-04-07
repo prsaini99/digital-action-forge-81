@@ -8,6 +8,14 @@ export const validateImageUrl = (url: string, fallback: string): string => {
     return fallback;
   }
   
+  // Handle lovable-uploads paths specially to ensure they work
+  if (url.includes('lovable-uploads')) {
+    if (!url.startsWith('/')) {
+      return `/${url}`;
+    }
+    return url;
+  }
+  
   // Check if the URL starts with http(s) or /
   if (!url.startsWith('http') && !url.startsWith('/')) {
     return `/${url}`;
@@ -53,6 +61,14 @@ export const createPlaceholderImage = (width: number, height: number, text: stri
  */
 export const sanitizeImagePath = (path: string): string => {
   if (!path) return '';
+  
+  // Special handling for lovable-uploads to ensure they work correctly
+  if (path.includes('lovable-uploads')) {
+    if (path.startsWith('public/')) {
+      return path.substring(7);
+    }
+    return path;
+  }
   
   // Remove 'public/' prefix if present
   if (path.startsWith('public/')) {
