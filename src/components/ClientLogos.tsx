@@ -1,5 +1,4 @@
 
-import { motion } from 'framer-motion';
 import ImageLoader from './ImageLoader';
 import { validateImageUrl, getImageFallback } from '../utils/imageValidator';
 

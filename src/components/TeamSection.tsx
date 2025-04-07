@@ -1,5 +1,7 @@
 
 import { Linkedin, Twitter } from 'lucide-react';
+import ImageLoader from './ImageLoader';
+import { createPlaceholderImage } from '../utils/imageValidator';
 
 const team = [
   {
@@ -37,14 +39,11 @@ const TeamSection = () => {
           {team.map((member, index) => (
             <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden group">
               <div className="relative">
-                <img 
+                <ImageLoader 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-full h-72 object-cover object-center" 
-                  onError={(e) => {
-                    // Fallback to placeholder if image fails to load
-                    e.currentTarget.src = `https://via.placeholder.com/300x300?text=${member.name.replace(' ', '+')}`;
-                  }}
+                  fallbackSrc={createPlaceholderImage(300, 300, member.name)}
+                  className="w-full h-72 object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-cta-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-6 flex space-x-3">

@@ -2,12 +2,16 @@
 import { ArrowRight, Building2, Map, Home, Landmark } from 'lucide-react';
 import ImageLoader from '../ImageLoader';
 import { Project } from '../../data/nriProjects';
+import { createPlaceholderImage } from '../../utils/imageValidator';
 
 interface ProjectCardProps {
   project: Project;
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  // Generate a fallback image if not provided
+  const fallbackImage = project.fallbackImage || createPlaceholderImage(800, 600, project.name);
+  
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-3">
@@ -15,10 +19,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           <ImageLoader 
             src={project.image} 
             alt={project.name} 
-            fallbackSrc={project.fallbackImage}
+            fallbackSrc={fallbackImage}
             className="h-64 lg:h-full w-full object-cover"
           />
         </div>
+        
         <div className="lg:col-span-2 p-6 lg:p-8">
           <h3 className="text-2xl font-display font-bold mb-2 text-gray-800">
             {project.name}

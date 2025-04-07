@@ -28,7 +28,14 @@ export const getImageFallback = (category: string, name: string): string => {
       return `https://via.placeholder.com/800x500?text=${formattedName}`;
     case 'about':
       return `https://via.placeholder.com/600x400?text=${formattedName}`;
+    case 'project':
+      return `https://via.placeholder.com/500x300?text=${formattedName}`;
     default:
       return `https://via.placeholder.com/400x300?text=${formattedName}`;
   }
+};
+
+// Create a consistent placeholder image when local images fail to load
+export const createPlaceholderImage = (width: number, height: number, text: string): string => {
+  return `https://via.placeholder.com/${width}x${height}?text=${encodeURIComponent(text)}`;
 };
