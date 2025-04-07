@@ -28,8 +28,10 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container-custom flex justify-between items-center">
-        {/* Logo */}
-        <Logo />
+        {/* Logo container with fixed height but allowing larger logo */}
+        <div className="h-16 flex items-center overflow-hidden">
+          <Logo />
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
