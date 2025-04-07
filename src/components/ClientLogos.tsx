@@ -1,17 +1,40 @@
 
-import { motion } from 'framer-motion';
 import ImageLoader from './ImageLoader';
 import { validateImageUrl, getImageFallback } from '../utils/imageValidator';
 
 const clients = [
-  { name: 'BMW', logo: '/images/logos/bmw-logo.png' },
-  { name: 'JBL', logo: '/images/logos/jbl-logo.png' },
-  { name: 'Google', logo: '/images/logos/google-logo.png' },
-  { name: 'Aster', logo: '/images/logos/aster-logo.png' },
-  { name: 'DAMAC', logo: '/images/logos/damac-logo.png' },
-  { name: 'V-Mart', logo: '/images/logos/vmart-logo.png' },
-  { name: 'Kohinoor', logo: '/images/logos/kohinoor-logo.png' },
-  { name: 'Sleepwell', logo: '/images/logos/sleepwell-logo.png' },
+  { 
+    name: 'BMW', 
+    logo: '/lovable-uploads/9e50f3fa-9f7d-4d01-b9d3-95c5acb5aaae.png' 
+  },
+  { 
+    name: 'JBL', 
+    logo: '/lovable-uploads/cf09747e-5dce-4232-b8d3-bc834dbe9a00.png' 
+  },
+  { 
+    name: 'Google', 
+    logo: '/lovable-uploads/99e2f15a-0c74-43a4-a1cf-53cec4f8ebb4.png' 
+  },
+  { 
+    name: 'Aster', 
+    logo: '/lovable-uploads/9e34cea2-8e60-4c00-9c25-6dfcfee0cc2d.png' 
+  },
+  { 
+    name: 'DAMAC', 
+    logo: '/lovable-uploads/1b80f8d1-ccf1-4639-9cad-a92d67731bae.png' 
+  },
+  { 
+    name: 'V-Mart', 
+    logo: '/lovable-uploads/0ee59b15-7a24-455a-9e98-5d865e9ecc68.png' 
+  },
+  { 
+    name: 'Kohinoor', 
+    logo: '/lovable-uploads/c3e8a686-f01c-48cb-8d63-d16c0e09cf1a.png' 
+  },
+  { 
+    name: 'Sleepwell', 
+    logo: '/lovable-uploads/dc3ecfda-6d40-4ce5-8c49-ea5e4ea25cef.png' 
+  },
 ];
 
 const ClientLogos = () => {
