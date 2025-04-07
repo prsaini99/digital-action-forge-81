@@ -79,7 +79,7 @@ const Contact = () => {
                   <MapPin size={24} className="text-cta-accent mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Visit Us</h3>
-                    <p className="text-gray-600">123 Digital Avenue, Mumbai, India</p>
+                    <p className="text-gray-600">Sobha Ltd, Kochi, Kerala</p>
                   </div>
                 </div>
 
