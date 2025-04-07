@@ -35,7 +35,29 @@ export const getImageFallback = (category: string, name: string): string => {
   }
 };
 
-// Create a consistent placeholder image when local images fail to load
+/**
+ * Create a consistent placeholder image when local images fail to load
+ * @param width Image width
+ * @param height Image height
+ * @param text Placeholder text
+ * @returns Placeholder URL
+ */
 export const createPlaceholderImage = (width: number, height: number, text: string): string => {
   return `https://via.placeholder.com/${width}x${height}?text=${encodeURIComponent(text)}`;
+};
+
+/**
+ * Sanitize image path for consistent usage
+ * @param path Image path
+ * @returns Sanitized image path
+ */
+export const sanitizeImagePath = (path: string): string => {
+  if (!path) return '';
+  
+  // Remove 'public/' prefix if present
+  if (path.startsWith('public/')) {
+    return path.substring(7);
+  }
+  
+  return path;
 };

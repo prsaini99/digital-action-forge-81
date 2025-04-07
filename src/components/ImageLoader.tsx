@@ -22,10 +22,7 @@ const ImageLoader = ({ src, alt, fallbackSrc, className }: ImageLoaderProps) => 
     if (src) {
       // Remove any leading 'public/' from the path if present
       const normalizedSrc = src.startsWith('public/') ? src.substring(7) : src;
-      
-      // Add a cache-busting parameter for mobile devices to prevent caching issues
-      const cacheBuster = `?v=${Date.now()}`;
-      setImgSrc(`${normalizedSrc}${cacheBuster}`);
+      setImgSrc(normalizedSrc);
     }
   }, [src]);
 

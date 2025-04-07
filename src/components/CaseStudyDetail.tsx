@@ -2,6 +2,8 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ContactCTA from './ContactCTA';
+import ImageLoader from './ImageLoader';
+import { createPlaceholderImage } from '../utils/imageValidator';
 
 export interface CaseStudyData {
   id: string;
@@ -60,13 +62,11 @@ const CaseStudyDetail = ({ caseStudy }: CaseStudyDetailProps) => {
       <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="relative rounded-xl overflow-hidden shadow-xl">
-            <img 
+            <ImageLoader 
               src={caseStudy.image} 
               alt={caseStudy.title} 
+              fallbackSrc={createPlaceholderImage(1200, 600, caseStudy.title)}
               className="w-full h-auto object-cover"
-              onError={(e) => {
-                e.currentTarget.src = `https://via.placeholder.com/1200x600?text=${caseStudy.title.replace(' ', '+')}`;
-              }}
             />
           </div>
         </div>

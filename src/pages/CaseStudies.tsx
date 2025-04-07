@@ -3,6 +3,8 @@ import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ContactCTA from '../components/ContactCTA';
 import { caseStudies } from '../data/caseStudies';
+import ImageLoader from '../components/ImageLoader';
+import { createPlaceholderImage } from '../utils/imageValidator';
 
 const CaseStudies = () => {
   return (
@@ -28,14 +30,11 @@ const CaseStudies = () => {
             {caseStudies.map((study) => (
               <div key={study.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                 <div className="relative overflow-hidden">
-                  <img 
+                  <ImageLoader 
                     src={study.image} 
                     alt={study.title} 
+                    fallbackSrc={createPlaceholderImage(800, 500, study.title)}
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                    onError={(e) => {
-                      // Fallback to placeholder if image fails to load
-                      e.currentTarget.src = `https://via.placeholder.com/800x500?text=${study.title.replace(' ', '+')}`;
-                    }}
                   />
                   <div className="absolute top-4 left-4 bg-cta-primary/90 text-white text-sm px-3 py-1 rounded-full">
                     {study.category}
