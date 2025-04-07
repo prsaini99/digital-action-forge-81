@@ -1,43 +1,55 @@
 
+import { useState } from 'react';
 import ImageLoader from './ImageLoader';
 import { validateImageUrl, getImageFallback } from '../utils/imageValidator';
 
 const clients = [
   { 
     name: 'BMW', 
-    logo: '/lovable-uploads/9e50f3fa-9f7d-4d01-b9d3-95c5acb5aaae.png' 
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/BMW_logo_%28gray%29.svg' 
   },
   { 
     name: 'JBL', 
-    logo: '/lovable-uploads/cf09747e-5dce-4232-b8d3-bc834dbe9a00.png' 
+    logo: 'https://1000logos.net/wp-content/uploads/2020/04/JBL-Logo.png' 
   },
   { 
     name: 'Google', 
-    logo: '/lovable-uploads/99e2f15a-0c74-43a4-a1cf-53cec4f8ebb4.png' 
+    logo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' 
   },
   { 
     name: 'Aster', 
-    logo: '/lovable-uploads/9e34cea2-8e60-4c00-9c25-6dfcfee0cc2d.png' 
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Aster_Logo.png' 
   },
   { 
     name: 'DAMAC', 
-    logo: '/lovable-uploads/1b80f8d1-ccf1-4639-9cad-a92d67731bae.png' 
+    logo: 'https://www.damacproperties.com/images/logo.svg' 
   },
   { 
     name: 'V-Mart', 
-    logo: '/lovable-uploads/0ee59b15-7a24-455a-9e98-5d865e9ecc68.png' 
+    logo: 'https://vmart.co.in/assets/images/v-mart-logo.png' 
   },
   { 
     name: 'Kohinoor', 
-    logo: '/lovable-uploads/c3e8a686-f01c-48cb-8d63-d16c0e09cf1a.png' 
+    logo: 'https://www.kohinoorfoods.in/images/assets/logo-kohinoor.png' 
   },
   { 
     name: 'Sleepwell', 
-    logo: '/lovable-uploads/dc3ecfda-6d40-4ce5-8c49-ea5e4ea25cef.png' 
+    logo: 'https://www.sleepwellproducts.com/assets/images/sleepwell-logo.png' 
   },
 ];
 
 const ClientLogos = () => {
+  const [imageStatuses, setImageStatuses] = useState<Record<string, boolean>>({});
+
+  const handleImageLoad = (name: string) => {
+    setImageStatuses(prev => ({ ...prev, [name]: true }));
+  };
+
+  const handleImageError = (name: string) => {
+    setImageStatuses(prev => ({ ...prev, [name]: false }));
+    console.log(`Logo failed to load: ${name}`);
+  };
+
   return (
     <section className="py-12 bg-gray-50">
       <div className="container-custom">
@@ -48,14 +60,18 @@ const ClientLogos = () => {
           {clients.map((client) => (
             <div 
               key={client.name}
-              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 flex items-center justify-center h-20"
             >
-              <ImageLoader 
-                src={validateImageUrl(client.logo, '')}
+              <img 
+                src={client.logo}
                 alt={`${client.name} logo`}
-                fallbackSrc={getImageFallback('logo', client.name)}
                 className="max-h-12 w-auto object-contain"
+                onLoad={() => handleImageLoad(client.name)}
+                onError={() => handleImageError(client.name)}
               />
+              {imageStatuses[client.name] === false && (
+                <div className="text-sm text-gray-400">{client.name}</div>
+              )}
             </div>
           ))}
         </div>
