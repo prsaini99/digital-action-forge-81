@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer = () => {
   return (
@@ -9,9 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-display font-bold mb-4">
-              Call<span className="text-cta-highlight">To</span>Action
-            </h3>
+            <Logo variant="light" className="mb-4" />
             <p className="text-gray-300 mb-4">
               Delivering impactful results through innovative, data-driven, and creative strategies.
             </p>
