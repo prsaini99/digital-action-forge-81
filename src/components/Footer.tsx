@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <Logo variant="light" className="mb-4" />
+            <Logo variant="light" className="mb-6" />
             <p className="text-gray-300 mb-4">
               Delivering impactful results through innovative, data-driven, and creative strategies.
             </p>
