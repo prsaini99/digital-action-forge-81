@@ -153,30 +153,6 @@ const CaseStudyDetail = ({ caseStudy }: CaseStudyDetailProps) => {
         </section>
       )}
       
-      {/* Gallery */}
-      {caseStudy.gallery && caseStudy.gallery.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <h2 className="text-3xl font-display font-bold mb-10 text-center">Gallery</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {caseStudy.gallery.map((image, index) => (
-                <div key={index} className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-                  <img 
-                    src={image} 
-                    alt={`${caseStudy.title} - Gallery image ${index + 1}`} 
-                    className="w-full h-64 object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://via.placeholder.com/800x600?text=Gallery+${index + 1}`;
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-      
       {/* Contact CTA */}
       <ContactCTA />
     </main>
