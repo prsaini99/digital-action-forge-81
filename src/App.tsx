@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import CaseStudies from "./pages/CaseStudies";
+import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:caseStudyId" element={<CaseStudyDetail />} />
           <Route path="/contact" element={<Contact />} />
           
           {/* NRI Portal Routes - still accessible but no navigation to them */}

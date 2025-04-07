@@ -1,30 +1,10 @@
 
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { caseStudies } from '../data/caseStudies';
 
-const caseStudies = [
-  {
-    title: 'BMW Mumbai',
-    description: 'High-quality lead generation boosting dealership preference through targeted campaigns.',
-    image: '/images/case-studies/bmw-case-study.jpg',
-    category: 'Performance Marketing',
-    link: '/case-studies'
-  },
-  {
-    title: 'Aster Pharmacy Dubai',
-    description: '15% revenue growth in 4 months via Google Search Ads and strategic digital marketing.',
-    image: '/images/case-studies/aster-case-study.jpg',
-    category: 'Digital Advertising',
-    link: '/case-studies'
-  },
-  {
-    title: 'JBL Harman Campaign',
-    description: '#MuteTheWorld campaign promoting noise-cancellation headphones, enhancing brand visibility.',
-    image: '/images/case-studies/jbl-case-study.jpg',
-    category: 'Social Media',
-    link: '/case-studies'
-  }
-];
+// Use the first 3 case studies for the highlight section
+const highlightedCaseStudies = caseStudies.slice(0, 3);
 
 const CaseStudiesHighlight = () => {
   return (
@@ -46,8 +26,8 @@ const CaseStudiesHighlight = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {caseStudies.map((study, index) => (
-            <Link to={study.link} key={index} className="group">
+          {highlightedCaseStudies.map((study) => (
+            <Link to={`/case-studies/${study.id}`} key={study.id} className="group">
               <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <img 
