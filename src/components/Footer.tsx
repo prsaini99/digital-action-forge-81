@@ -81,15 +81,18 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="mr-2 mt-1 text-cta-highlight" />
-                <span className="text-gray-300">123 Digital Avenue, Mumbai, India</span>
+                <div className="flex flex-col">
+                  <span className="text-gray-300">B-2105, Park Regis, Business Bay, Dubai, UAE.</span>
+                  <span className="text-gray-300 mt-2">1002, Tower-3, Spring Grove Tower, Lokhandwala Township, Kandivali (E), Mumbai-400101.</span>
+                </div>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-2 text-cta-highlight" />
-                <span className="text-gray-300">+91 98765 43210</span>
+                <span className="text-gray-300">+91 8744092526</span>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-2 text-cta-highlight" />
-                <span className="text-gray-300">info@calltoaction.agency</span>
+                <span className="text-gray-300">info@calltoaction.co.in</span>
               </li>
             </ul>
           </div>

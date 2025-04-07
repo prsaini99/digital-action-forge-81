@@ -79,7 +79,20 @@ const Contact = () => {
                   <MapPin size={24} className="text-cta-accent mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Visit Us</h3>
-                    <p className="text-gray-600">123 Digital Avenue, Mumbai, India</p>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-gray-800 font-medium">UAE Office:</p>
+                        <p className="text-gray-600">B-2105, Park Regis, Business Bay, Dubai, UAE.</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-800 font-medium">US Office:</p>
+                        <p className="text-gray-600">16192 Costal Highway, Lewes, Delaware 19958, County of Susex.</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-800 font-medium">India Office:</p>
+                        <p className="text-gray-600">1002, Tower-3, Spring Grove Tower, Lokhandwala Township, Kandivali (E), Mumbai-400101.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -87,7 +100,7 @@ const Contact = () => {
                   <Mail size={24} className="text-cta-accent mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Email Us</h3>
-                    <p className="text-gray-600">info@calltoaction.agency</p>
+                    <p className="text-gray-600">info@calltoaction.co.in</p>
                   </div>
                 </div>
 
@@ -95,7 +108,7 @@ const Contact = () => {
                   <Phone size={24} className="text-cta-accent mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Call Us</h3>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 8744092526</p>
                   </div>
                 </div>
               </div>
