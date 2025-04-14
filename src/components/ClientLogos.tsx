@@ -1,7 +1,17 @@
 
+import { useState, useEffect } from 'react';
 import ImageLoader from './ImageLoader';
 import { validateImageUrl, getImageFallback } from '../utils/imageValidator';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from "@/components/ui/carousel";
+import Autoplay from 'embla-carousel-autoplay';
 
+// Updated client logos list with all 10 uploaded images
 const clients = [
   { 
     name: 'BMW', 
@@ -25,40 +35,105 @@ const clients = [
   },
   { 
     name: 'V-Mart', 
-    logo: 'https://via.placeholder.com/150x80?text=V-Mart' 
+    logo: '/lovable-uploads/73ad4742-ead0-45e5-a553-3259fe7cb28a.png' 
   },
   { 
-    name: 'Kohinoor', 
-    logo: 'https://via.placeholder.com/150x80?text=Kohinoor' 
+    name: 'TCI', 
+    logo: '/lovable-uploads/880bdbee-7c03-477b-aea6-3c783913675d.png' 
+  },
+  { 
+    name: 'Stanza Living', 
+    logo: '/lovable-uploads/5c060582-7547-45a7-a4a5-ab4a885df5a9.png' 
+  },
+  { 
+    name: 'PropTiger', 
+    logo: '/lovable-uploads/41bb9e20-f40e-46df-979f-39614c21a427.png' 
+  },
+  { 
+    name: 'HSBC', 
+    logo: '/lovable-uploads/c73cfddf-639d-424f-80e3-1a9b67311d9c.png' 
+  },
+  { 
+    name: 'C&B Financial', 
+    logo: '/lovable-uploads/d7547488-777b-4710-b058-f775f262d2c4.png' 
+  },
+  { 
+    name: 'Volvo', 
+    logo: '/lovable-uploads/00cf4596-d717-4269-ba1b-a65ae2c34538.png' 
   },
   { 
     name: 'Sleepwell', 
-    logo: 'https://via.placeholder.com/150x80?text=Sleepwell' 
+    logo: '/lovable-uploads/48f7e9c4-20a6-441c-8e69-9b170c6a36d5.png' 
+  },
+  { 
+    name: 'Alexa', 
+    logo: '/lovable-uploads/68b38d33-6dbe-4d90-b981-2a8391fce79c.png' 
+  },
+  { 
+    name: 'Fortis', 
+    logo: '/lovable-uploads/ea192dc6-422f-4fb7-aeff-04458c522fb4.png' 
   },
 ];
 
 const ClientLogos = () => {
+  // Create an autoplay plugin instance
+  const [plugin, setPlugin] = useState<Autoplay | null>(null);
+
+  useEffect(() => {
+    // Create a new autoplay plugin when component mounts
+    if (!plugin) {
+      setPlugin(
+        Autoplay({
+          delay: 2000, // 2 seconds between slides
+          stopOnInteraction: true, // Stop autoplay when user interacts
+          stopOnMouseEnter: true, // Pause autoplay on mouse hover
+          rootNode: (emblaRoot) => emblaRoot.parentElement, // Defaults to emblaRoot
+        })
+      );
+    }
+
+    // Cleanup function to stop autoplay when component unmounts
+    return () => {
+      if (plugin) {
+        plugin.stop();
+      }
+    };
+  }, [plugin]);
+
   return (
     <section className="py-12 bg-gray-50">
       <div className="container-custom">
         <h2 className="text-2xl font-display font-semibold text-center text-gray-700 mb-10">
           Trusted by Leading Brands
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center">
-          {clients.map((client) => (
-            <div 
-              key={client.name}
-              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
-            >
-              <ImageLoader 
-                src={validateImageUrl(client.logo, '')}
-                alt={`${client.name} logo`}
-                fallbackSrc={getImageFallback('logo', client.name)}
-                className="h-16 w-auto max-w-[150px] object-contain"
-              />
-            </div>
-          ))}
-        </div>
+        
+        <Carousel 
+          className="w-full max-w-screen-xl mx-auto"
+          plugins={plugin ? [plugin] : undefined}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
+          <CarouselContent className="-ml-1">
+            {clients.map((client) => (
+              <CarouselItem key={client.name} className="pl-1 md:basis-1/4 lg:basis-1/5">
+                <div className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 p-2 flex items-center justify-center h-24">
+                  <ImageLoader 
+                    src={validateImageUrl(client.logo, '')}
+                    alt={`${client.name} logo`}
+                    fallbackSrc={getImageFallback('logo', client.name)}
+                    className="h-16 w-auto max-w-[150px] object-contain"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="hidden md:flex justify-end mt-4 gap-2">
+            <CarouselPrevious className="relative inset-auto -left-0 transform-none" />
+            <CarouselNext className="relative inset-auto -right-0 transform-none" />
+          </div>
+        </Carousel>
       </div>
     </section>
   );
