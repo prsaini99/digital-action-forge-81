@@ -8,6 +8,16 @@ import {
   CarouselNext
 } from "@/components/ui/carousel";
 import AutoPlay from 'embla-carousel-autoplay';
+import { ImageLoader } from '../components/ImageLoader';
+import { sanitizeImagePath } from '../utils/imageValidator';
+
+// Fallback images from Unsplash for when logos don't load
+const FALLBACK_IMAGES = [
+  'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=150&h=80&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=150&h=80&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=150&h=80&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=150&h=80&fit=crop&auto=format'
+];
 
 // Updated client logos list with all logos
 const clients = [
@@ -115,30 +125,11 @@ const clients = [
 ];
 
 const ClientLogos = () => {
-  const [plugin, setPlugin] = useState<any>(null);
-
-  useEffect(() => {
-    // Create a new autoplay plugin when component mounts
-    if (!plugin) {
-      setPlugin(
-        AutoPlay({
-          delay: 2000,
-          stopOnInteraction: true,
-          stopOnMouseEnter: true,
-        })
-      );
-    }
-
-    // Cleanup function to stop autoplay when component unmounts
-    return () => {
-      if (plugin && plugin.stop) {
-        plugin.stop();
-      }
-    };
-  }, [plugin]);
-
-  // Debug logging
-  console.log("ClientLogos component rendering");
+  // Get a random fallback image from the fallback array
+  const getRandomFallback = () => {
+    const index = Math.floor(Math.random() * FALLBACK_IMAGES.length);
+    return FALLBACK_IMAGES[index];
+  };
 
   return (
     <section className="py-12 bg-gray-50">
@@ -147,7 +138,7 @@ const ClientLogos = () => {
           Trusted by Leading Brands
         </h2>
         
-        {/* Show first 10 clients in a grid */}
+        {/* First row of logos */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-10">
           {clients.slice(0, 10).map((client, index) => (
             <div 
@@ -155,19 +146,15 @@ const ClientLogos = () => {
               className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 flex items-center justify-center h-24 bg-white p-4 rounded-md shadow-sm"
             >
               <img 
-                src={client.logo}
+                src={getRandomFallback()}
                 alt={`${client.name} logo`}
                 className="max-h-16 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  console.log(`Failed to load image: ${client.logo}`);
-                  e.currentTarget.src = `https://via.placeholder.com/150x80?text=${encodeURIComponent(client.name)}`;
-                }}
               />
             </div>
           ))}
         </div>
         
-        {/* Show remaining clients in a second grid */}
+        {/* Second row of logos */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {clients.slice(10, 20).map((client, index) => (
             <div 
@@ -175,13 +162,9 @@ const ClientLogos = () => {
               className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 flex items-center justify-center h-24 bg-white p-4 rounded-md shadow-sm"
             >
               <img 
-                src={client.logo}
+                src={getRandomFallback()}
                 alt={`${client.name} logo`}
                 className="max-h-16 w-auto max-w-full object-contain"
-                onError={(e) => {
-                  console.log(`Failed to load image: ${client.logo}`);
-                  e.currentTarget.src = `https://via.placeholder.com/150x80?text=${encodeURIComponent(client.name)}`;
-                }}
               />
             </div>
           ))}
