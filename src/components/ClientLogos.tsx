@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from 'react';
+import ImageLoader from './ImageLoader';
+import { validateImageUrl, getImageFallback } from '../utils/imageValidator';
 import {
   Carousel,
   CarouselContent,
@@ -7,19 +9,9 @@ import {
   CarouselPrevious,
   CarouselNext
 } from "@/components/ui/carousel";
-import AutoPlay from 'embla-carousel-autoplay';
-import { ImageLoader } from '../components/ImageLoader';
-import { sanitizeImagePath } from '../utils/imageValidator';
+import Autoplay from 'embla-carousel-autoplay';
 
-// Fallback images from Unsplash for when logos don't load
-const FALLBACK_IMAGES = [
-  'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=150&h=80&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=150&h=80&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=150&h=80&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=150&h=80&fit=crop&auto=format'
-];
-
-// Updated client logos list with all logos
+// Updated client logos list with all 10 uploaded images
 const clients = [
   { 
     name: 'BMW', 
@@ -81,55 +73,32 @@ const clients = [
     name: 'Fortis', 
     logo: '/lovable-uploads/ea192dc6-422f-4fb7-aeff-04458c522fb4.png' 
   },
-  // Adding the new batch of logos
-  { 
-    name: 'Web Chutney', 
-    logo: '/lovable-uploads/e19f9151-fb47-4990-9f24-e5df9b9e4fd2.png' 
-  },
-  { 
-    name: 'Airtel', 
-    logo: '/lovable-uploads/b1cde88d-51d3-4c75-9554-67cb1c13b361.png' 
-  },
-  { 
-    name: 'Seagate', 
-    logo: '/lovable-uploads/343bf112-7505-4f7f-86f5-bc546a7f0e43.png' 
-  },
-  { 
-    name: 'Paytm', 
-    logo: '/lovable-uploads/7a16d9e5-204e-4c48-9c28-b87155d4107c.png' 
-  },
-  { 
-    name: 'Future Generali', 
-    logo: '/lovable-uploads/d55141f5-2c95-483a-b7cd-dc829194fc6e.png' 
-  },
-  { 
-    name: 'Organic Harvest', 
-    logo: '/lovable-uploads/498ba6e0-c34b-4986-98f0-6907ba85758e.png' 
-  },
-  { 
-    name: 'Kent RO', 
-    logo: '/lovable-uploads/3405138e-f5a5-47f3-b625-5cb82b0e2c56.png' 
-  },
-  { 
-    name: 'Logo 1', 
-    logo: '/lovable-uploads/67a2ffcc-debc-4938-a8e6-7536d592bcde.png' 
-  },
-  { 
-    name: 'Logo 2', 
-    logo: '/lovable-uploads/a8972fda-4b90-417e-aa3c-931102032641.png' 
-  },
-  { 
-    name: 'Logo 3', 
-    logo: '/lovable-uploads/0575232f-2bab-4056-898b-a8a85782c5ce.png' 
-  },
 ];
 
 const ClientLogos = () => {
-  // Get a random fallback image from the fallback array
-  const getRandomFallback = () => {
-    const index = Math.floor(Math.random() * FALLBACK_IMAGES.length);
-    return FALLBACK_IMAGES[index];
-  };
+  // Create an autoplay plugin instance
+  const [plugin, setPlugin] = useState<Autoplay | null>(null);
+
+  useEffect(() => {
+    // Create a new autoplay plugin when component mounts
+    if (!plugin) {
+      setPlugin(
+        Autoplay({
+          delay: 2000, // 2 seconds between slides
+          stopOnInteraction: true, // Stop autoplay when user interacts
+          stopOnMouseEnter: true, // Pause autoplay on mouse hover
+          rootNode: (emblaRoot) => emblaRoot.parentElement, // Defaults to emblaRoot
+        })
+      );
+    }
+
+    // Cleanup function to stop autoplay when component unmounts
+    return () => {
+      if (plugin) {
+        plugin.stop();
+      }
+    };
+  }, [plugin]);
 
   return (
     <section className="py-12 bg-gray-50">
@@ -138,37 +107,33 @@ const ClientLogos = () => {
           Trusted by Leading Brands
         </h2>
         
-        {/* First row of logos */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-10">
-          {clients.slice(0, 10).map((client, index) => (
-            <div 
-              key={`grid-${client.name}-${index}`}
-              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 flex items-center justify-center h-24 bg-white p-4 rounded-md shadow-sm"
-            >
-              <img 
-                src={getRandomFallback()}
-                alt={`${client.name} logo`}
-                className="max-h-16 w-auto max-w-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
-        
-        {/* Second row of logos */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {clients.slice(10, 20).map((client, index) => (
-            <div 
-              key={`grid2-${client.name}-${index}`}
-              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 flex items-center justify-center h-24 bg-white p-4 rounded-md shadow-sm"
-            >
-              <img 
-                src={getRandomFallback()}
-                alt={`${client.name} logo`}
-                className="max-h-16 w-auto max-w-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
+        <Carousel 
+          className="w-full max-w-screen-xl mx-auto"
+          plugins={plugin ? [plugin] : undefined}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
+          <CarouselContent className="-ml-1">
+            {clients.map((client) => (
+              <CarouselItem key={client.name} className="pl-1 md:basis-1/4 lg:basis-1/5">
+                <div className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 p-2 flex items-center justify-center h-24">
+                  <ImageLoader 
+                    src={validateImageUrl(client.logo, '')}
+                    alt={`${client.name} logo`}
+                    fallbackSrc={getImageFallback('logo', client.name)}
+                    className="h-16 w-auto max-w-[150px] object-contain"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="hidden md:flex justify-end mt-4 gap-2">
+            <CarouselPrevious className="relative inset-auto -left-0 transform-none" />
+            <CarouselNext className="relative inset-auto -right-0 transform-none" />
+          </div>
+        </Carousel>
       </div>
     </section>
   );

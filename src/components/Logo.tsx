@@ -7,19 +7,13 @@ interface LogoProps {
 }
 
 const Logo = ({ className = '', variant = 'dark' }: LogoProps) => {
-  // Use a reliable placeholder from Unsplash
-  const logoSrc = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=150&fit=crop&auto=format';
-
   return (
     <Link to="/" className={`block ${className}`}>
-      <div className="flex items-center">
-        <img 
-          src={logoSrc}
-          alt="Call to Action Logo" 
-          className={`h-12 ${variant === 'light' ? 'brightness-100' : 'brightness-100'}`} 
-        />
-        <span className="ml-2 font-display font-bold text-xl">Call to Action</span>
-      </div>
+      <img 
+        src="/lovable-uploads/ccf98407-84db-4be9-9a46-d989de048de5.png" 
+        alt="Call to Action Logo" 
+        className={`h-32 ${variant === 'light' ? 'brightness-100' : 'brightness-100'}`} 
+      />
     </Link>
   );
 };
