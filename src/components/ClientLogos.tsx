@@ -1,7 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import ImageLoader from './ImageLoader';
-import { validateImageUrl, getImageFallback } from '../utils/imageValidator';
 import {
   Carousel,
   CarouselContent,
@@ -141,6 +139,9 @@ const ClientLogos = () => {
     };
   }, [plugin]);
 
+  // Testing - log a message to ensure component is rendering
+  console.log("ClientLogos component rendering");
+
   return (
     <section className="py-12 bg-gray-50">
       <div className="container-custom">
@@ -148,8 +149,23 @@ const ClientLogos = () => {
           Trusted by Leading Brands
         </h2>
         
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-8">
+          {clients.slice(0, 10).map((client, index) => (
+            <div 
+              key={`grid-${client.name}-${index}`}
+              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 p-2 flex items-center justify-center h-24"
+            >
+              <img 
+                src={client.logo}
+                alt={`${client.name} logo`}
+                className="h-16 w-auto max-w-[150px] object-contain"
+              />
+            </div>
+          ))}
+        </div>
+        
         <Carousel 
-          className="w-full max-w-screen-xl mx-auto"
+          className="w-full max-w-screen-xl mx-auto hidden"
           plugins={plugin ? [plugin] : undefined}
           opts={{
             align: "start",
