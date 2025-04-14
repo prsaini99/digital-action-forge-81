@@ -9,9 +9,9 @@ import {
   CarouselPrevious,
   CarouselNext
 } from "@/components/ui/carousel";
-import AutoplayPlugin from 'embla-carousel-autoplay';
+import AutoPlay from 'embla-carousel-autoplay';
 
-// Updated client logos list with all 10 uploaded images
+// Updated client logos list with all logos
 const clients = [
   { 
     name: 'BMW', 
@@ -73,17 +73,58 @@ const clients = [
     name: 'Fortis', 
     logo: '/lovable-uploads/ea192dc6-422f-4fb7-aeff-04458c522fb4.png' 
   },
+  // Adding the new batch of logos
+  { 
+    name: 'Web Chutney', 
+    logo: '/lovable-uploads/e19f9151-fb47-4990-9f24-e5df9b9e4fd2.png' 
+  },
+  { 
+    name: 'Airtel', 
+    logo: '/lovable-uploads/b1cde88d-51d3-4c75-9554-67cb1c13b361.png' 
+  },
+  { 
+    name: 'Seagate', 
+    logo: '/lovable-uploads/343bf112-7505-4f7f-86f5-bc546a7f0e43.png' 
+  },
+  { 
+    name: 'Paytm', 
+    logo: '/lovable-uploads/7a16d9e5-204e-4c48-9c28-b87155d4107c.png' 
+  },
+  { 
+    name: 'Future Generali', 
+    logo: '/lovable-uploads/d55141f5-2c95-483a-b7cd-dc829194fc6e.png' 
+  },
+  { 
+    name: 'Organic Harvest', 
+    logo: '/lovable-uploads/498ba6e0-c34b-4986-98f0-6907ba85758e.png' 
+  },
+  { 
+    name: 'Kent RO', 
+    logo: '/lovable-uploads/3405138e-f5a5-47f3-b625-5cb82b0e2c56.png' 
+  },
+  { 
+    name: 'Logo 1', 
+    logo: '/lovable-uploads/67a2ffcc-debc-4938-a8e6-7536d592bcde.png' 
+  },
+  { 
+    name: 'Logo 2', 
+    logo: '/lovable-uploads/a8972fda-4b90-417e-aa3c-931102032641.png' 
+  },
+  { 
+    name: 'Logo 3', 
+    logo: '/lovable-uploads/0575232f-2bab-4056-898b-a8a85782c5ce.png' 
+  },
 ];
 
 const ClientLogos = () => {
   // Create an autoplay plugin instance
-  const [plugin, setPlugin] = useState<AutoplayPlugin | null>(null);
+  const [plugin, setPlugin] = useState<any>(null);
 
   useEffect(() => {
     // Create a new autoplay plugin when component mounts
     if (!plugin) {
       setPlugin(
-        AutoplayPlugin({
+        AutoPlay({
           delay: 2000, // 2 seconds between slides
           stopOnInteraction: true, // Stop autoplay when user interacts
           stopOnMouseEnter: true, // Pause autoplay on mouse hover
@@ -116,13 +157,12 @@ const ClientLogos = () => {
           }}
         >
           <CarouselContent className="-ml-1">
-            {clients.map((client) => (
-              <CarouselItem key={client.name} className="pl-1 md:basis-1/4 lg:basis-1/5">
+            {clients.map((client, index) => (
+              <CarouselItem key={`${client.name}-${index}`} className="pl-1 md:basis-1/4 lg:basis-1/5">
                 <div className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 p-2 flex items-center justify-center h-24">
-                  <ImageLoader 
-                    src={validateImageUrl(client.logo, '')}
+                  <img 
+                    src={client.logo}
                     alt={`${client.name} logo`}
-                    fallbackSrc={getImageFallback('logo', client.name)}
                     className="h-16 w-auto max-w-[150px] object-contain"
                   />
                 </div>
