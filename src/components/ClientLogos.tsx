@@ -115,7 +115,6 @@ const clients = [
 ];
 
 const ClientLogos = () => {
-  // Create an autoplay plugin instance
   const [plugin, setPlugin] = useState<any>(null);
 
   useEffect(() => {
@@ -123,23 +122,22 @@ const ClientLogos = () => {
     if (!plugin) {
       setPlugin(
         AutoPlay({
-          delay: 2000, // 2 seconds between slides
-          stopOnInteraction: true, // Stop autoplay when user interacts
-          stopOnMouseEnter: true, // Pause autoplay on mouse hover
-          rootNode: (emblaRoot) => emblaRoot.parentElement, // Defaults to emblaRoot
+          delay: 2000,
+          stopOnInteraction: true,
+          stopOnMouseEnter: true,
         })
       );
     }
 
     // Cleanup function to stop autoplay when component unmounts
     return () => {
-      if (plugin) {
+      if (plugin && plugin.stop) {
         plugin.stop();
       }
     };
   }, [plugin]);
 
-  // Testing - log a message to ensure component is rendering
+  // Debug logging
   console.log("ClientLogos component rendering");
 
   return (
@@ -149,47 +147,45 @@ const ClientLogos = () => {
           Trusted by Leading Brands
         </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-8">
+        {/* Show first 10 clients in a grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-10">
           {clients.slice(0, 10).map((client, index) => (
             <div 
               key={`grid-${client.name}-${index}`}
-              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 p-2 flex items-center justify-center h-24"
+              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 flex items-center justify-center h-24 bg-white p-4 rounded-md shadow-sm"
             >
               <img 
                 src={client.logo}
                 alt={`${client.name} logo`}
-                className="h-16 w-auto max-w-[150px] object-contain"
+                className="max-h-16 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  console.log(`Failed to load image: ${client.logo}`);
+                  e.currentTarget.src = `https://via.placeholder.com/150x80?text=${encodeURIComponent(client.name)}`;
+                }}
               />
             </div>
           ))}
         </div>
         
-        <Carousel 
-          className="w-full max-w-screen-xl mx-auto hidden"
-          plugins={plugin ? [plugin] : undefined}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-        >
-          <CarouselContent className="-ml-1">
-            {clients.map((client, index) => (
-              <CarouselItem key={`${client.name}-${index}`} className="pl-1 md:basis-1/4 lg:basis-1/5">
-                <div className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 p-2 flex items-center justify-center h-24">
-                  <img 
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="h-16 w-auto max-w-[150px] object-contain"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="hidden md:flex justify-end mt-4 gap-2">
-            <CarouselPrevious className="relative inset-auto -left-0 transform-none" />
-            <CarouselNext className="relative inset-auto -right-0 transform-none" />
-          </div>
-        </Carousel>
+        {/* Show remaining clients in a second grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {clients.slice(10, 20).map((client, index) => (
+            <div 
+              key={`grid2-${client.name}-${index}`}
+              className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 flex items-center justify-center h-24 bg-white p-4 rounded-md shadow-sm"
+            >
+              <img 
+                src={client.logo}
+                alt={`${client.name} logo`}
+                className="max-h-16 w-auto max-w-full object-contain"
+                onError={(e) => {
+                  console.log(`Failed to load image: ${client.logo}`);
+                  e.currentTarget.src = `https://via.placeholder.com/150x80?text=${encodeURIComponent(client.name)}`;
+                }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
