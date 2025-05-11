@@ -63,13 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for Call to Action
+				// Updated colors for Call to Action - more professional palette
 				cta: {
-					primary: '#2D3A8C', // Deep blue
-					secondary: '#5A67D8', // Indigo
-					accent: '#7928CA', // Purple
-					highlight: '#00E5FF', // Electric blue highlight
-					dark: '#1A1F2C', // Dark background
+					primary: '#2E4057', // Deep navy blue
+					secondary: '#4F6D7A', // Steel blue
+					accent: '#455E6F', // Slate blue
+					highlight: '#E1EBF2', // Light blue highlight
+					dark: '#1A2530', // Dark background
 					light: '#F7FAFC', // Light background
 				}
 			},
