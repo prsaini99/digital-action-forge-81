@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
   CarouselNext
 } from "@/components/ui/carousel";
-import Autoplay from 'embla-carousel-autoplay';
+import AutoplayPlugin from 'embla-carousel-autoplay';
 
 // Updated client logos list with all 10 uploaded images
 const clients = [
@@ -77,13 +77,13 @@ const clients = [
 
 const ClientLogos = () => {
   // Create an autoplay plugin instance
-  const [plugin, setPlugin] = useState<Autoplay | null>(null);
+  const [plugin, setPlugin] = useState<any>(null);
 
   useEffect(() => {
     // Create a new autoplay plugin when component mounts
     if (!plugin) {
       setPlugin(
-        Autoplay({
+        AutoplayPlugin({
           delay: 2000, // 2 seconds between slides
           stopOnInteraction: true, // Stop autoplay when user interacts
           stopOnMouseEnter: true, // Pause autoplay on mouse hover
